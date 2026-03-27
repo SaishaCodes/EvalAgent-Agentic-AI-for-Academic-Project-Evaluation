@@ -6,7 +6,6 @@ EvalAgent is an autonomous agentic AI system designed to assist professors in ma
 The system supports proposal evaluation, milestone feedback, and final grading using a unified AI-driven pipeline powered by large language models.
 
 High-Level Architecture
-
 +----------------------+          +--------------------------+
 |  Frontend (React)    |  <---->  |  Backend (FastAPI)       |
 |  - Upload ZIP        |          |  - Evaluation pipelines  |
@@ -26,18 +25,16 @@ High-Level Architecture
                                   |  Database                |
                                   |  (SQLite/PostgreSQL)     |
                                   +--------------------------+
-
-
 Features
-1. Proposal Evaluation
+Proposal Evaluation
 Validates alignment with course objectives
 Assesses feasibility and originality
 Provides structured improvement suggestions
-2. Milestone Feedback
+Milestone Feedback
 Evaluates incremental progress
 Generates iterative, context-aware feedback
 Supports continuous student improvement
-3. Final Grading
+Final Grading
 Uses a YAML-defined rubric
 Produces dimension-wise scoring
 Generates transparent evaluation reports
@@ -47,8 +44,6 @@ Backend: FastAPI, SQLAlchemy, Pydantic
 LLM Integration: llama-cpp-python, Hugging Face Inference API
 Database: SQLite (default), PostgreSQL (optional)
 Other: YAML (rubrics), Markdown parsing
-
-
 Project Structure
 PROJECT/
 │── backend/
@@ -70,15 +65,12 @@ PROJECT/
 │
 │── .gitignore
 │── README.md
-
-
 Environment Setup
 Prerequisites
 Python >= 3.10
 Node.js >= 18
 Git
 unzip
-
 Backend Setup
 python -m venv .venv-back
 .venv-back\Scripts\activate     # Windows
@@ -94,12 +86,12 @@ cd agentic-ai-frontend
 npm install
 npm install axios react-dropzone react-markdown remark-gfm
 LLM Configuration
-Option 1: Local Model (Recommended for offline use)
+Option 1: Local Model
 Download GGUF model (e.g. Llama-2-7B-Chat)
-Place in:
+Place it in:
 backend/models/
 
-Set environment:
+Set environment variable:
 
 set LLM_BACKEND=local
 Option 2: Hugging Face API
@@ -109,7 +101,6 @@ Running the System
 Start Backend
 cd backend
 .venv-back\Scripts\activate
-
 uvicorn app.main:app --reload --port 8000
 Start Frontend
 cd agentic-ai-frontend
@@ -127,12 +118,12 @@ student_id: string
 file: ZIP file
 Response
 {
-  "id": int,
-  "student_id": "string",
-  "stage": "string",
-  "score": float,
+  "id": 1,
+  "student_id": "s123",
+  "stage": "final",
+  "score": 85.5,
   "detailed_report": {},
-  "message": "string"
+  "message": "Evaluation completed successfully."
 }
 Rubric Engine
 Defined in rubric.yaml
@@ -144,17 +135,17 @@ Upload project ZIP
 Backend extracts files
 Prompt is constructed based on stage
 LLM generates structured evaluation
-Rubric engine computes score (final stage)
+Rubric engine computes score
 Result stored in database
-JSON response returned to frontend
+JSON response returned
 Future Improvements
-Authentication system for professors
-Batch evaluation support
-PDF report parsing
-Multi-agent workflows (plagiarism, code quality)
-Dashboard for analytics and tracking
-GPU acceleration using vLLM
-Multi-course rubric support
+Authentication system
+Batch evaluation
+PDF parsing
+Multi-agent workflows
+Analytics dashboard
+GPU acceleration
+Multi-course support
 License
 
 This project is intended for academic and research purposes. Modify and extend as needed.
