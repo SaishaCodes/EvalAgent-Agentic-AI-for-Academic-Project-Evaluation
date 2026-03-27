@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic[dotenv]
+python-multipart
+llama-cpp-python==0.2.68   # works on Windows, CPU‑only
+transformers
+sentencepiece
+huggingface_hub
+pyyaml
+sqlalchemy

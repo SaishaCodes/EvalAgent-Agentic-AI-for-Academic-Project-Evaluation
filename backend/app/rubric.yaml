@@ -1,0 +1,22 @@
+# backend/app/rubric.yaml
+final_grade:
+  description: "Overall grading rubric for the final project"
+  dimensions:
+    - name: "Problem Definition"
+      weight: 0.15
+      max_score: 10
+    - name: "Literature Review"
+      weight: 0.10
+      max_score: 8
+    - name: "Methodology"
+      weight: 0.20
+      max_score: 12
+    - name: "Implementation"
+      weight: 0.25
+      max_score: 15
+    - name: "Evaluation & Results"
+      weight: 0.15
+      max_score: 10
+    - name: "Presentation & Writing"
+      weight: 0.15
+      max_score: 10
